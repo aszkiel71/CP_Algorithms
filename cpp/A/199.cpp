@@ -20,7 +20,6 @@ int main() {
     fibb.push_back(0);
     fibb.push_back(1);
     int nextFib = 1;
-
     while (nextFib <= n) {
         nextFib = fibb[fibb.size() - 1] + fibb[fibb.size() - 2];
         fibb.push_back(nextFib);
