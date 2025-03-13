@@ -8,7 +8,6 @@ int main() {
     cout.tie(nullptr);
     int n;
     cin>>n;
-    int i = 0;
     while(n--) {
       string str;
       cin>>str;
@@ -20,7 +19,6 @@ int main() {
         cout << new_str << "\n";
         continue;
       }
-        i++;
       cout << str << "\n";
     }
 
