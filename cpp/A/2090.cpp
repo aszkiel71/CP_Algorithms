@@ -8,29 +8,44 @@ int main() {
     int t;
     cin >> t;
     while (t--) {
-        long long x, y, a;
-        cin >> x >> y >> a;
-        a = a * 2 + 1;
-
-        if (x * 2 >= a) {
+        int x, y, a;  cin >> x >> y >> a; int tmp = a / (x + y);    int sum = tmp * (x+y);
+        float aprim = (float) a;
+        if (x > a)
+        {
             cout << "NO\n";
-            continue;
         }
-
-        if ((x + y) * 2 >= a) {
-            cout << "YES\n";
-            continue;
-        }
-
-        int tmp = (a - 1) / (x + y);
-        int rem = a - tmp * (x + y);
-
-
-        if (rem <= x * 2) {
-            cout << "NO\n";
-        } else {
+        else if (x + y > aprim + 0.5)
+        {
             cout << "YES\n";
         }
+        else
+        {
+            int que = 0;
+            while (sum <= a)
+            {
+                if (que % 2 == 0)
+                {
+                    sum += x;
+                    if (sum > a)
+                    {
+                        cout << "NO\n";
+                        continue;
+                    }
+                }
+                else
+                {
+                    sum += y;
+                    if (sum > a)
+                    {
+                        cout << "YES\n";
+                        continue;
+                    }
+                }
+                que++;
+            }
+        }
+
+
     }
     return 0;
 }
