@@ -34,6 +34,21 @@ struct Trie {
     }
     cnt2[x]++;
   }
+
+  void del(string s) {
+    if (!find(s)) return;
+    int x = 0;
+    int n = s.size();
+    cnt1[x]--;
+    for (int i = 0; i < n; i++) {
+      int p = s[i] - 'a';
+      int next = nr[x][p];
+      cnt1[next]--;
+      x = next;
+    }
+    cnt2[x]--;
+  }
+
   bool find(string s) {
     int x = 0;
     int n = s.size();
