@@ -1,3 +1,5 @@
+*.prob
+
 *.exe
 .idea/
 *.iml
