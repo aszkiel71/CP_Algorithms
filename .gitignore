@@ -1,5 +1,5 @@
 *.prob
-
+*.json
 *.exe
 .idea/
 *.iml
