@@ -45,6 +45,4 @@ int main() {
   precomputePowers();
 
 
-
-
 }
