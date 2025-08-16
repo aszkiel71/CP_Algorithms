@@ -10,7 +10,7 @@
 -> Divide and Conquer
 
 
--> Slidding Window
+-> Sliding Window
 
 -> Two Pointers
 
