@@ -18,14 +18,14 @@ public:
         for(int i = 0; i < n; i++){
             int a = nums[i];
             // przypadek 1: b >= a -> b ∈ [a, 2a]
-            auto L_b_ge_a = lower_bound(nums.begin(), nums.end(), a);
-            auto R_b_ge_a = upper_bound(nums.begin(), nums.end(), 2*a);
-            res += distance(L_b_ge_a, R_b_ge_a);
+            int L = lower_bound(nums.begin(), nums.end(), a);
+            int R = upper_bound(nums.begin(), nums.end(), 2*a);
+            res += R - L;
 
             // przypadek 2: b < a -> b ∈ [ceil(a/2),a)
-            auto L_b_lt_a = lower_bound(nums.begin(), nums.end(), (a+1)/2);
-            auto R_b_lt_a = lower_bound(nums.begin(), nums.end(), a);
-            res += distance(L_b_lt_a, R_b_lt_a);
+            L = lower_bound(nums.begin(), nums.end(), (a+1)/2);
+            R = lower_bound(nums.begin(), nums.end(), a);
+            res += R - L;
         }
         // odejmujemy pary (a,a) i dzielimy na pół (bo liczone sa (i, j) i (j, i))
         return (res - n) / 2;
