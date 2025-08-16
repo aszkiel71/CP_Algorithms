@@ -52,4 +52,31 @@ Hash updateHashWithChar(const Hash& currentHash, int pos, char old_char,
   return {(int)new_h1, (int)new_h2};
 }
 
+Hash addLetterToHash(const Hash& currentHash, int len, char new_char) {
+  int val = new_char - 'a' + 1;
+
+  long long new_h1 = (currentHash.h1 + (long long)val * pot1[len]) % M1;
+  long long new_h2 = (currentHash.h2 + (long long)val * pot2[len]) % M2;
+
+  return {(int)new_h1, (int)new_h2};
+}
+
+Hash rollingHashLeft(const Hash& currentHash, int len, char first_char,
+                     char new_char) {
+  int val_old = first_char - 'a' + 1;
+  int val_new = new_char - 'a' + 1;
+
+  long long h1 = currentHash.h1;
+  h1 = (h1 - (long long)val_old * pot1[0] % M1 + M1) % M1;
+  h1 = (h1 * 1LL * ST1) % M1;
+  h1 = (h1 + (long long)val_new * pot1[len - 1]) % M1;
+
+  long long h2 = currentHash.h2;
+  h2 = (h2 - (long long)val_old * pot2[0] % M2 + M2) % M2;
+  h2 = (h2 * 1LL * ST2) % M2;
+  h2 = (h2 + (long long)val_new * pot2[len - 1]) % M2;
+
+  return {(int)h1, (int)h2};
+}
+
 int main() { precomputePowers(); }

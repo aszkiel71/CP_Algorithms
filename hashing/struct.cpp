@@ -14,9 +14,9 @@ int hash2[N], pot2[N];
 
 pair<int, int> getHash(int a, int b) {
   int res1 =
-      (hash1[a] - (((long long)hash1[b + 1] * pot1[b - a]) % M1) + M1) % M1;
+      (hash1[a] - (((long long)hash1[b + 1] * pot1[b - a + 1]) % M1) + M1) % M1;
   int res2 =
-      (hash2[a] - (((long long)hash2[b + 1] * pot2[b - a]) % M2) + M2) % M2;
+      (hash2[a] - (((long long)hash2[b + 1] * pot2[b - a + 1]) % M2) + M2) % M2;
   return {res1, res2};
 }
 

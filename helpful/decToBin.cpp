@@ -5,7 +5,7 @@ string decToBin(int x) {
   string res = "";
   while (x) {
     res += '0' + (x & 1);
-    x >>= 2;
+    x >>= 1;
   }
   while (res.length() < 31) {
     res += '0';
