@@ -16,21 +16,11 @@ const int N = 2e5 + 12;
 const ll inf = 1e18 + 7;
 
 void solve(){
-    int n; cin >> n;
-    int win = n, los = 0, res = 0;
-    while(win > 1 || los > 1){
-        res += los/2;
-        los = (los+1)/2;
-        res += win/2;
-        los += win/2;
-        win = (win+1)/2;
+    int n; cin >> n; vector<int> a(n);
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
     }
-        cout << res + 1 << "\n";
-}
 
-void solve2(){
-    int n; cin >> n;
-    cout << 2*n - 2 << "\n";
 }
 
 int main(){
@@ -40,6 +30,6 @@ int main(){
     int t = 1;
     cin >> t;
     while(t--){
-        solve2();
+        solve();
     }
 }

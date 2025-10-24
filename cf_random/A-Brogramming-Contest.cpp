@@ -14,32 +14,25 @@ using namespace std;
 typedef long long ll;
 const int N = 2e5 + 12;
 const ll inf = 1e18 + 7;
-
+#define int long long
 void solve(){
-    int n; cin >> n;
-    int win = n, los = 0, res = 0;
-    while(win > 1 || los > 1){
-        res += los/2;
-        los = (los+1)/2;
-        res += win/2;
-        los += win/2;
-        win = (win+1)/2;
+    int n; string s; cin >> n >> s;
+    // s -> 0, t -> 1
+    int res = 0;
+    for(int i = 0; i < n-1; i++){
+        res += (s[i] != s[i+1]);
     }
-        cout << res + 1 << "\n";
+    res += s[0] == '1';
+    cout << res << "\n";
 }
 
-void solve2(){
-    int n; cin >> n;
-    cout << 2*n - 2 << "\n";
-}
-
-int main(){
+signed main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
 
     int t = 1;
     cin >> t;
     while(t--){
-        solve2();
+        solve();
     }
 }

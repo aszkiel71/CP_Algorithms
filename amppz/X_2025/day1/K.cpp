@@ -10,27 +10,27 @@ using namespace std;
 #define debug(x) cout << #x << " = " << (x) << "\n"
 #define all(x) (x).begin(), (x).end()
 #define pb push_back
-
+// [1, 3] [2, 5]
 typedef long long ll;
 const int N = 2e5 + 12;
 const ll inf = 1e18 + 7;
 
 void solve(){
-    int n; cin >> n;
-    int win = n, los = 0, res = 0;
-    while(win > 1 || los > 1){
-        res += los/2;
-        los = (los+1)/2;
-        res += win/2;
-        los += win/2;
-        win = (win+1)/2;
+    ll a, b, c, d; cin >> a >> b >> c >> d;
+    if(c < a){
+        swap(a, c);
+        swap(b, d);
     }
-        cout << res + 1 << "\n";
-}
 
-void solve2(){
-    int n; cin >> n;
-    cout << 2*n - 2 << "\n";
+    if(d < b){
+        cout << d - c << "\n";
+    }
+    else if(b > c){
+        cout << b - c << "\n";
+    }
+    else{
+        cout << 0 << "\n";
+    }
 }
 
 int main(){
@@ -40,6 +40,6 @@ int main(){
     int t = 1;
     cin >> t;
     while(t--){
-        solve2();
+        solve();
     }
 }

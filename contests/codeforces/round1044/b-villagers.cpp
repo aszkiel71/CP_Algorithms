@@ -16,11 +16,10 @@ void solve() {
   for (int i = 0; i < n; i++) {
     cin >> a[i];
   }
-  sort(a.begin(), a.end());
   long long res = 0;
-  if (n % 2) res = a[n - 1];
-  for (int i = 0; i + 1 < n; i += 2) {
-    res += a[i + 1];
+  sort(a.begin(), a.end());
+  for(int i = n - 1; i >= 0 ; i-=2){
+    res += a[i];
   }
   cout << res << "\n";
 }

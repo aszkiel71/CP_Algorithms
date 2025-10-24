@@ -14,23 +14,22 @@ using namespace std;
 typedef long long ll;
 const int N = 2e5 + 12;
 const ll inf = 1e18 + 7;
-
+const ll M = 998244353;
 void solve(){
-    int n; cin >> n;
-    int win = n, los = 0, res = 0;
-    while(win > 1 || los > 1){
-        res += los/2;
-        los = (los+1)/2;
-        res += win/2;
-        los += win/2;
-        win = (win+1)/2;
+    int n; cin >> n; vector<int> a(n), b(n);
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
     }
-        cout << res + 1 << "\n";
-}
-
-void solve2(){
-    int n; cin >> n;
-    cout << 2*n - 2 << "\n";
+    for(int i = 0; i < n; i++){
+        cin >> b[i];
+    }
+    ll res = 1;
+    for(int i = 0; i < n; i++){
+        if(a[i] > b[i]) swap(a[i], b[i]);
+        if(i == 0) res = (res * 2) % M;
+        else if (a[i] >= b[i-1]) res = (res * 2) % M;
+    }
+    cout << res << "\n";
 }
 
 int main(){
@@ -40,6 +39,6 @@ int main(){
     int t = 1;
     cin >> t;
     while(t--){
-        solve2();
+        solve();
     }
 }

@@ -15,31 +15,36 @@ typedef long long ll;
 const int N = 2e5 + 12;
 const ll inf = 1e18 + 7;
 
+#define int long long
+
+int gcd(int a, int b){
+    if(b==0) return a;
+    return gcd(b, a % b);
+}
+
 void solve(){
-    int n; cin >> n;
-    int win = n, los = 0, res = 0;
-    while(win > 1 || los > 1){
-        res += los/2;
-        los = (los+1)/2;
-        res += win/2;
-        los += win/2;
-        win = (win+1)/2;
+    int n, k; cin >> n >> k; vector<int> a(n);
+    for (int i = 0; i < n; i++){
+        cin >> a[i];
     }
-        cout << res + 1 << "\n";
+    if(n == 1){
+        cout << a[0] << "\n";
+        return;
+    }
+    sort(all(a));
+    int lower = 1, upper = a[k];
+    
+
+
 }
 
-void solve2(){
-    int n; cin >> n;
-    cout << 2*n - 2 << "\n";
-}
-
-int main(){
+signed main(){
     ios_base::sync_with_stdio(false);
     cin.tie(0);
 
     int t = 1;
     cin >> t;
     while(t--){
-        solve2();
+        solve();
     }
 }
