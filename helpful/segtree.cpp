@@ -13,7 +13,7 @@ struct ST {
     }
 
     for (int i = size - 1; i >= 0; i--) {
-      tree[i] = tree[2 * i] ^ tree[2 * i + 1];
+      tree[i] = tree[2 * i] + tree[2 * i + 1];
     }
   }
 
