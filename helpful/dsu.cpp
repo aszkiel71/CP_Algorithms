@@ -3,6 +3,7 @@ vector<int> sz;
 
 void make_set(int x){
     leaders[x] = x;
+    sz[x] = 1;
 }
 
 int find_set(int x){
@@ -10,7 +11,7 @@ int find_set(int x){
     return (leaders[x] = find_set(leaders[x])); // Compression
 }
 
-void make_set(int u, int v){
+void union_set(int u, int v){
     u = find_set(u); v = find_set(v);
     if(u == v) return;
     if(sz[u] < sz[v]) swap(u, v);
